@@ -1,0 +1,5 @@
+create a WorkoutLog directory 
+
+create two directories: 'client' and 'server' inside of the workout log directory
+
+in cmd cd to workoutlog
