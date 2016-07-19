@@ -1,0 +1,24 @@
+{
+  "name": "workout_log_client",
+  "description": "front end for workout log app",
+  "main": "index.js",
+  "authors": [
+    "atadsp"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/atadsp/workout_log_app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "bootstrap": "^3.3.6"
+  },
+  "resolutions": {
+    "jquery": "1.9.1 - 2"
+  }
+}
