@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes){
 	var User = sequelize.define('user', {
-	username: DataTypes.STRING,
+	username: { type: DataTypes.STRING, unique: true },
 	passwordhash: DataTypes.STRING
 });
 	return User;
