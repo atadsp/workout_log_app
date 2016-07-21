@@ -1,10 +1,10 @@
 //definition model needs description, logtype and owner
 
-module.exports = function (sequelize, DataType) {
+module.exports = function (sequelize, DataTypes) {
 return sequelize.define('definition',{
-	description: DataType.STRING,
-	logType: DataType.STRING,
-	owner: DataType.INTEGER
+	description: DataTypes.STRING,
+	logType: DataTypes.STRING,
+	owner: DataTypes.INTEGER
 });
 };
 

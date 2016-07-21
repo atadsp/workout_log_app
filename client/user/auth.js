@@ -17,7 +17,7 @@ $.extend(WorkoutLog, {
                WorkoutLog.setAuthHeader(data.sessionToken);
                //.definition hasent been added yet
                //WorkoutLog.definition.fetchAll();
-               // WorkoutLog.log.fetchAll();
+               //WorkoutLog.log.fetchAll();
             }
             $("#signup-modal").modal("hide");
             $(".disabled").removeClass("disabled");
@@ -45,7 +45,7 @@ $.extend(WorkoutLog, {
             WorkoutLog.setAuthHeader(data.sessionToken);
             //.definition hasent been added yet
             //WorkoutLog.definition.fetchAll();
-            // WorkoutLog.log.fetchAll();
+            //WorkoutLog.log.fetchAll();
 			}
 			// TODO: add logic to set user and auth token	
 			$("#login-modal").modal("hide");
