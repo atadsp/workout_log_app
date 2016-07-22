@@ -32,7 +32,7 @@ $(function() {
 						"Authorization": window.localStorage.getItem('sessionToken')
 					}
 				}).done(function(data){
-				WorkoutLog.definition.userDefinition = data;
+				WorkoutLog.definition.userDefinitions = data;
 				}).fail(function(err){
 					console.log(err);
 				});

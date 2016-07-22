@@ -28,6 +28,7 @@ router.post('/', function(req, res){
 
 //fetch definition by userid
 router.get('/', function(req, res){
+	var owner = req.user.id;
 	Definition.findAll({
 		where: {owner:owner}
 	}).then(

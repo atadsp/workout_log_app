@@ -31,6 +31,27 @@ $(document).ready(function() {
          return false;
       }
    });
+   //bind tab change events
+   $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
+      var target = $(e.target).attr('href');
+      if (target === "#log"){
+         WorkoutLog.log.setDefinitions();
+      } else
+      if (target === "#history"){
+         WorkoutLog.log.setHistory();
+      }
+   });
+  // bind enter key
+   $(document).on("keypress", function(e) {
+      if (e.which === 13) { // enter key
+         if ($("#signup-modal").is(":visible")) {
+            $("#signup").trigger("click");
+         }
+         if ($("#login-modal").is(":visible")) {
+            $("#login").trigger("click");
+         }
+      }
+   });
 
    // setHeader if we have a session (refresh of browser)
    var token = window.localStorage.getItem("sessionToken");
