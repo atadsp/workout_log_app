@@ -26,7 +26,7 @@ $(function() { // same as $(document).ready(function() {
 					history[i].def + " - " +
 					history[i].result +
 					// pass the log.id into the button's id attribute // watch your quotes!
-					"<button id='" + history[i].id + "' class='remove'>Remove Me</button></li>";
+					"<button id='" + history[i].id + "' class='remove'>X</button></li>";
 				}
 				// removes existing labels prior to appending history
 				$("#history-list").children().remove();
