@@ -18,12 +18,19 @@ $(function() { // same as $(document).ready(function() {
 			setHistory: function() {
 				var history = WorkoutLog.log.workouts;
 				var len = history.length;
-				var list = "";
+				// will eventually loop through and append to select options dropdown
+				var lis = "";
 				for (var i = 0; i < len; i++) {
-					list += "<li class='list-group-item'>" + history[i].def + " - " + history[i].description + "</li>";
+					lis += "<li class='list-group-item'>" +
+					history[i].id + " - " +
+					history[i].def + " - " +
+					history[i].result +
+					// pass the log.id into the button's id attribute // watch your quotes!
+					"<button id='" + history[i].id + "' class='remove'>Remove Me</button></li>";
 				}
+				// removes existing labels prior to appending history
 				$("#history-list").children().remove();
-				$("#history-list").append(list);
+				$("#history-list").append(lis);
 			},
 
 			create: function() {
@@ -51,6 +58,29 @@ $(function() { // same as $(document).ready(function() {
 
 			},
 
+			delete: function(){
+				var thisLog = {
+					id: $(this).attr("id")
+				};
+				
+				var deleteData = { log: thisLog };
+
+				var deleteLog = $.ajax({
+					type: "DELETE",
+					url: WorkoutLog.API_BASE + "log",
+					data: JSON.stringify(deleteData),
+					contentType: "application/json"
+				});
+
+				// removes list item
+				// references button then grabs closest li
+				$(this).closest("li").remove();
+
+				deleteLog.fail(function(){
+					console.log("nope. you didn't delete it.");
+				});
+			},
+
 			fetchAll: function() {
 				var fetchDefs = $.ajax({
 					type: "GET",
@@ -73,7 +103,15 @@ $(function() { // same as $(document).ready(function() {
 
 	$("#log-save").on("click", WorkoutLog.log.create);
 
+		// need to change to delete once .ajax call is finished
+	// has to target id of ul b/c li items are dynamic
+	$("#history-list").delegate('.remove', 'click', WorkoutLog.log.delete);
+
+	// if I refresh page and I have a valid session token, fetch all logs
 	if (window.localStorage.getItem("sessionToken")) {
 		WorkoutLog.log.fetchAll();
 	}
+	
+
+	
 });
