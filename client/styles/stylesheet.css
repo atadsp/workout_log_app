@@ -9,3 +9,8 @@ button {
     border-radius: 5px;
     font-weight: bold;
 }
+
+.nav-tabs li:last-child{
+	float:right;
+	margin:10px;
+}

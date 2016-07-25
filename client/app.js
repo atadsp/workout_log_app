@@ -42,14 +42,18 @@ $(document).ready(function() {
       }
    });
   // bind enter key
-   $(document).on("keypress", function(e) {
-      if (e.which === 13) { // enter key
-         if ($("#signup-modal").is(":visible")) {
-            $("#signup").trigger("click");
-         }
-         if ($("#login-modal").is(":visible")) {
-            $("#login").trigger("click");
-         }
+   $("a[data-toggle='tab']").on("shown.bs.tab", function(e){
+      // sees which tab is targeted
+      var target = $(e.target).attr("href");
+      if (target === "#log") {
+         WorkoutLog.log.setDefinitions();
+      }
+      if (target === "#history") {
+         WorkoutLog.log.setHistory();
+      }
+      // hides Welcome User on logout
+      if (target === "#home") {
+         $("#welcome").hide();
       }
    });
 

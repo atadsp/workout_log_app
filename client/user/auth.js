@@ -54,10 +54,15 @@ $(function() {
 
          login.done(function(data) {
             if (data.sessionToken) {
+               // call function (part of refactoring)
                WorkoutLog.afterSignin(data.sessionToken);
                $("#login-modal").modal("hide");
+               $('.nav-tabs a[href="#log"]').tab('show');
+               $("#welcome").show();
+               $("#welcome").text("Welcome, " + username);
             }
-         }).fail(function() {
+         })
+         .fail(function() {
             $("#li_error").text("There was an issue with sign up").show();
          });
       },
