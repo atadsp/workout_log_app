@@ -76,6 +76,12 @@ $(function() { // same as $(document).ready(function() {
 				// references button then grabs closest li
 				$(this).closest("li").remove();
 
+				for(var i = 0; i < WorkoutLog.log.workouts.length; i++){
+					if(WorkoutLog.log.workouts[i].id == thisLog.id){
+						WorkoutLog.log.workouts.splice(i, 1);
+					}
+				}
+
 				deleteLog.fail(function(){
 					console.log("nope. you didn't delete it.");
 				});

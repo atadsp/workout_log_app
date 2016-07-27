@@ -10,7 +10,26 @@ button {
     font-weight: bold;
 }
 
+.nav-tabs{
+        background-color: #337ab7;
+        color: white;
+}
+.nav-tabs a{
+    color: white;
+}
+
 .nav-tabs li:last-child{
 	float:right;
 	margin:10px;
+}
+
+body{
+    background-image:url(../assets/img/background_gradient.jpg);
+    background-repeat: repeat-y;
+    background-size: 100%;
+}
+
+.clarity{
+    background-color: white;
+    padding: 50px;
 }
